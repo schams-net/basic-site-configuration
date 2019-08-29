@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  SchamsNet\BasicSiteConfiguration\:
+    resource: '../Classes/*'
+
+  SchamsNet\BasicSiteConfiguration\Hook\TypoScriptHook:
+    public: true
+
+  SchamsNet\BasicSiteConfiguration\Hook\PageTsConfigHook:
+    public: true

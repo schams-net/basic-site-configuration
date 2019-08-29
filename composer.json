@@ -1,0 +1,19 @@
+{
+	"name": "schams-net/basic-site-configuration",
+	"type": "typo3-cms-extension",
+	"description": "Implements the basic configuration for TYPO3 sites",
+	"homepage": "https://schams.net",
+	"license": "GPL-3.0+",
+	"require": {
+		"typo3/cms-core": "^9.5 || ^10.0"
+	},
+	"replace": {
+		"basic_site_configuration": "self.version",
+		"schams-net/basic-site-configuration": "self.version"
+	},
+	"autoload": {
+		"psr-4": {
+			"SchamsNet\\BasicSiteConfiguration\\": "Classes"
+		}
+	}
+}

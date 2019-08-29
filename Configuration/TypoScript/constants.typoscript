@@ -1,0 +1,9 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript">
+
+page {
+  fluidtemplate {
+    layoutRootPath = EXT:basic_site_configuration/Resources/Private/Layouts/Page/
+    partialRootPath = EXT:basic_site_configuration/Resources/Private/Partials/Page/
+    templateRootPath = EXT:basic_site_configuration/Resources/Private/Templates/Page/
+  }
+}

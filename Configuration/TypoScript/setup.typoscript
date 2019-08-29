@@ -1,0 +1,114 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:basic_site_configuration/Configuration/TypoScript/Helper/DynamicContent.typoscript">
+
+page = PAGE
+page {
+  typeNum = 0
+
+  10 = FLUIDTEMPLATE
+  10 {
+    templateRootPaths {
+      0 = EXT:basic_site_configuration/Resources/Private/Templates/Page/
+      1 = {$page.fluidtemplate.templateRootPath}
+    }
+    partialRootPaths {
+      0 = EXT:basic_site_configuration/Resources/Private/Partials/Page/
+      1 = {$page.fluidtemplate.partialRootPath}
+    }
+    layoutRootPaths {
+      0 = EXT:basic_site_configuration/Resources/Private/Layouts/Page/
+      1 = {$page.fluidtemplate.layoutRootPath}
+    }
+
+    templateName = TEXT
+    templateName.stdWrap.cObject = CASE
+    templateName.stdWrap.cObject {
+      key.data = pagelayout
+      default = TEXT
+      default.value = Content
+      pagets__home = TEXT
+      pagets__home.value = Home
+      pagets__content = TEXT
+      pagets__content.value = Content
+    }
+
+    file.stdWrap.cObject = CASE
+    file.stdWrap.cObject {
+      key.data = levelfield:-1, backend_layout_next_level, slide
+      key.override.field = backend_layout
+      pagets__home = TEXT
+      pagets__home.value = EXT:basic_site_configuration/Resources/Private/Templates/Page/Home.html
+      pagets__content = TEXT
+      pagets__content.value = EXT:basic_site_configuration/Resources/Private/Templates/Page/Content.html
+    }
+
+    dataProcessing {
+      10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      10 {
+        levels = 1
+        includeSpacer = 1
+        as = mainnavigation
+      }
+    }
+  }
+
+  includeCSS {
+    bootstrap = https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
+    bootstrap.integrity = sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T
+    bootstrap.external = 1
+    fontawesome = https://use.fontawesome.com/releases/v5.9.0/css/all.css
+    fontawesome.integrity = sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E
+    fontawesome.external = 1
+    googleFont = https://fonts.googleapis.com/css?family=Fjalla+One|Source+Sans+Pro&display=swap
+    googleFont.external = 1
+    custom = EXT:basic_site_configuration/Resources/Public/Css/custom.css
+  }
+
+  includeJSFooter {
+    # jquerySlim = https://code.jquery.com/jquery-3.4.1.slim.min.js
+    # jquerySlim.integrity = sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n
+    # jquerySlim.external = 1
+    jquery = https://code.jquery.com/jquery-3.4.1.min.js
+    jquery.integrity = sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh
+    jquery.external = 1
+    popper = https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js
+    popper.integrity = sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1
+    popper.external = 1
+    bootstrap = https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js
+    bootstrap.integrity = sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM
+    bootstrap.external = 1
+    custom = EXT:basic_site_configuration/Resources/Public/JavaScript/custom.js
+  }
+}
+
+config {
+  absRefPrefix = auto
+  cache_period = 86400
+  debug = 0
+  disablePrefixComment = 1
+  doctype = html5
+  extTarget =
+  index_enable = 1
+  index_externals = 1
+  index_metatags = 1
+  inlineStyle2TempFile = 1
+  intTarget =
+  linkVars = L
+  metaCharset = utf-8
+  no_cache = 0
+  pageTitleFirst = 1
+  prefixLocalAnchors = all
+  removeDefaultJS = 0
+  renderCharset = utf-8
+  sendCacheHeaders = 1
+  uniqueLinkVars = 1
+
+  // Disable image upscaling
+  noScaleUp = 1
+
+  // Compression and concatenation of CSS and JS Files
+  compressCss = 0
+  compressJs = 0
+  concatenateCss = 0
+  concatenateJs = 0
+}

@@ -1,0 +1,14 @@
+/**
+ * TYPO3 Extension "Basic Site Configuration"
+ *
+ * Author: Michael Schams <schams.net>
+ * https://schams.net
+ */
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+main {
+	padding-top: 4rem;
+}
